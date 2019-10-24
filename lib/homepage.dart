@@ -20,6 +20,8 @@ class _HomepageState extends State<Homepage>
 
   TabController _tabController;
 
+  bool isUserLoggedIn = false;
+
   @override
   void initState() {
     super.initState();
@@ -35,6 +37,33 @@ class _HomepageState extends State<Homepage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('Easygroups'),
+              decoration: BoxDecoration(
+                color: Colors.red,
+              ),
+            ),
+            ListTile(
+              title: Text('Commissioni'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+            ListTile(
+              title: Text((isUserLoggedIn) ? 'Logout' : 'Login'),
+              onTap: () {
+                setState(() {
+                  isUserLoggedIn = !isUserLoggedIn;
+                });
+              },
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text(widget.title),
         bottom: TabBar(
