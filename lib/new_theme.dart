@@ -6,6 +6,7 @@ class NewThemeScreen extends StatelessWidget {
 
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _responsableController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
 
   NewThemeScreen();
 
@@ -15,7 +16,7 @@ class NewThemeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Nuovo tema'),
       ),
-      body: Center(
+      body: Container(
         child: Column(
           children: <Widget>[
             Padding(
@@ -30,6 +31,15 @@ class NewThemeScreen extends StatelessWidget {
               child: TextField(
                 controller: _responsableController,
                 decoration: InputDecoration(hintText: 'Inserisci responsabile'),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(15),
+              child: TextField(
+                controller: _descriptionController,
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
+                decoration: InputDecoration(hintText: 'Inserisci una descrizione'),
               ),
             ),
             Padding(
